@@ -48,7 +48,7 @@ body {
 .ask { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 48px; align-items: start; padding: 32px 0 40px; }
 h1 {
   font: 800 clamp(2.75rem, 7vw, 5.25rem)/.95 var(--display);
-  letter-spacing: -.035em;
+  letter-spacing: -.02em;
   margin: 0 0 20px;
   font-variation-settings: "opsz" 96;
 }
