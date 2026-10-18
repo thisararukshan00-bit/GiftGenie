@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GiftGenie</title>
+  <meta name="description" content="Describe someone you love. GiftGenie uses Qloo's taste graph to find gifts that match what they already enjoy.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="wordmark" href="/" aria-label="GiftGenie home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="12" width="24" height="16" rx="2"/><rect x="2" y="8" width="28" height="6" rx="1.5"/><path d="M16 8v20M16 8c-3-5-9-5-8-1 1 3 8 1 8 1zm0 0c3-5 9-5 8-1-1 3-8 1-8 1z"/></svg>
+      GiftGenie
+    </a>
+    <span class="powered">Recommendations from Qloo's taste graph</span>
+  </header>
+
+  <main>
+    <section class="ask" aria-labelledby="ask-title">
+      <div class="intro">
+        <h1 id="ask-title">Who's the gift for?</h1>
+        <p class="lede">Tell GiftGenie about them in a sentence or two — especially the bands, films, books and brands they love. It finds things people with the same taste adore, then turns them into gifts.</p>
+      </div>
+
+      <form id="genie-form" class="note" novalidate>
+        <label class="note-label" for="description">About them</label>
+        <textarea id="description" name="description" rows="4" required maxlength="1500"
+          placeholder="My sister Nimmi turns 24 next week. She loves Taylor Swift, Studio Ghibli films, Harry Potter books and matcha."></textarea>
+        <button type="button" class="link-btn" id="example-btn">Fill in an example</button>
+
+        <fieldset class="choices">
+          <legend>Occasion</legend>
+          <div class="chips">
+            <label><input type="radio" name="occasion" value="birthday" checked><span>Birthday</span></label>
+            <label><input type="radio" name="occasion" value="anniversary"><span>Anniversary</span></label>
+            <label><input type="radio" name="occasion" value="thank you"><span>Thank you</span></label>
+            <label><input type="radio" name="occasion" value="just because"><span>Just because</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="choices">
+          <legend>Budget</legend>
+          <div class="chips">
+            <label><input type="radio" name="budget" value="small"><span>Under $25</span></label>
+            <label><input type="radio" name="budget" value="medium" checked><span>$25–75</span></label>
+            <label><input type="radio" name="budget" value="big"><span>Over $75</span></label>
+            <label><input type="radio" name="budget" value="any"><span>Any</span></label>
+          </div>
+        </fieldset>
+
+        <div class="city">
+          <label for="city">Their city <span class="optional">(optional, adds local places)</span></label>
+          <input id="city" name="city" type="text" maxlength="60" placeholder="Colombo" autocomplete="address-level2">
+        </div>
+
+        <button class="primary" type="submit" id="go">Find gifts</button>
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+      </form>
+    </section>
+
+    <section class="work" id="work" hidden aria-live="polite">
+      <h2>How GiftGenie is thinking</h2>
+      <ol class="trace" id="trace"></ol>
+    </section>
+
+    <section class="results" id="results" hidden>
+      <div class="results-head">
+        <h2 id="results-title">Gift ideas</h2>
+        <p class="matched" id="matched"></p>
+      </div>
+      <ul class="tags" id="tags"></ul>
+
+      <form class="refine" id="refine-form">
+        <label for="feedback">Not quite right? Tell GiftGenie what to change.</label>
+        <div class="refine-row">
+          <input id="feedback" name="feedback" type="text" maxlength="400" placeholder="Cheaper, please — and no books, she has too many">
+          <button class="secondary" type="submit">Find new ideas</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p id="mode-note"></p>
+    <p>GiftGenie is open source under the MIT license. Built for the Qloo Agentic Hackathon.</p>
+  </footer>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "giftgenie",
+  "version": "0.1.0",
+  "description": "A gift-finding agent grounded in Qloo's taste graph.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "Thisara Rukshan",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/agent.test.js"
+  }
+}
