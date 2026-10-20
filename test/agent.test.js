@@ -15,7 +15,7 @@ const r = await runGenie({ description: 'My dad loves Pink Floyd and The Godfath
 assert.ok(!r.error, r.error);
 assert.ok(r.gifts.length >= 3, 'expected at least 3 gifts');
 assert.ok(r.categories.includes('place'), 'city should add local places');
-assert.deepEqual([...new Set(steps.filter((s) => s.status === 'done').map((s) => s.id))], ['understand', 'ground', 'plan', 'discover', 'curate']);
+assert.deepEqual([...new Set(steps.filter((s) => s.status === 'done').map((s) => s.id))], ['understand', 'plan', 'ground', 'discover', 'curate']);
 
 const empty = await runGenie({ description: '' });
 assert.ok(empty.error);
