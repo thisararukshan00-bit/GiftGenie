@@ -143,7 +143,7 @@ function renderResult(r) {
   const who = r.recipient && r.recipient !== 'them' ? r.recipient : 'them';
   $('#results-title').textContent = `Gift ideas for ${who}`;
   $('#matched').textContent = r.likes?.length
-    ? `Based on their love of ${r.likes.map((l) => l.matched).join(', ')}.`
+    ? `Based on their love of ${r.likes.map((l) => l.asked).join(', ')}.`
     : '';
 
   r.gifts.forEach((g, i) => {
